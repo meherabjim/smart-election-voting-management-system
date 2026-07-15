@@ -17,39 +17,29 @@
             fx:controller="com.example.votingsystem3.controllers.UserDashboardController"
             prefWidth="1100"
             prefHeight="720"
-            style="-fx-background-color: #eef5fb;">
-
-    <!-- ================= HEADER ================= -->
+            stylesheets="@app-theme.css"
+            styleClass="page-shell">
 
     <top>
 
         <VBox alignment="CENTER"
-              spacing="5"
-              style="-fx-background-color: linear-gradient(to right, #0d47a1, #1976d2);
-                     -fx-padding: 18 20 18 20;">
+              styleClass="top-banner">
 
-            <Label text="Live Election Monitoring"
-                   style="-fx-font-size: 30px;
-                          -fx-font-weight: bold;
-                          -fx-text-fill: white;"/>
+            <Label text="LIVE ELECTION MONITORING"
+                   styleClass="main-title"/>
 
             <Label text="Bangladesh Election Live Monitoring Dashboard"
-                   style="-fx-font-size: 13px;
-                          -fx-text-fill: #e3f2fd;"/>
+                   styleClass="subtitle"/>
 
         </VBox>
 
     </top>
 
-    <!-- ================= MAIN CONTENT ================= -->
-
     <center>
 
         <ScrollPane fitToWidth="true"
                     hbarPolicy="NEVER"
-                    vbarPolicy="AS_NEEDED"
-                    style="-fx-background-color: transparent;
-                           -fx-background: transparent;">
+                    vbarPolicy="AS_NEEDED">
 
             <content>
 
@@ -64,102 +54,57 @@
                                 left="40"/>
                     </padding>
 
-                    <!-- ===================================== -->
-                    <!-- SECTION 1: BANGLADESH LIVE VOTE CAST -->
-                    <!-- ===================================== -->
+                    <!-- BANGLADESH LIVE COUNT -->
 
                     <VBox alignment="CENTER"
                           spacing="7"
                           maxWidth="1000"
                           prefWidth="1000"
-                          style="-fx-background-color: white;
-                                 -fx-background-radius: 14;
-                                 -fx-border-radius: 14;
-                                 -fx-border-color: #cfe1ef;
-                                 -fx-padding: 20;
-                                 -fx-effect: dropshadow(
-                                     three-pass-box,
-                                     rgba(0,0,0,0.12),
-                                     9,
-                                     0,
-                                     0,
-                                     3
-                                 );">
+                          styleClass="section-card">
 
                         <Label text="BANGLADESH LIVE VOTE CAST"
-                               style="-fx-font-size: 13px;
-                                      -fx-font-weight: bold;
-                                      -fx-text-fill: #607d8b;"/>
+                               styleClass="normal-text"/>
 
                         <Label fx:id="bangladeshLiveCountLabel"
                                text="Bangladesh Live Votes Cast: 0"
-                               alignment="CENTER"
-                               style="-fx-font-size: 31px;
-                                      -fx-font-weight: bold;
-                                      -fx-text-fill: #0d47a1;"/>
+                               styleClass="section-title"/>
 
                         <Label text="The national vote-cast total updates automatically."
-                               style="-fx-font-size: 12px;
-                                      -fx-text-fill: #78909c;"/>
+                               styleClass="normal-text"/>
 
                     </VBox>
 
-                    <!-- ===================================== -->
-                    <!-- SECTION 2: BANGLADESH RESULTS        -->
-                    <!-- ===================================== -->
+                    <!-- BANGLADESH SUBMITTED RESULT -->
 
                     <VBox alignment="CENTER"
                           spacing="13"
                           maxWidth="1000"
                           prefWidth="1000"
-                          style="-fx-background-color: white;
-                                 -fx-background-radius: 14;
-                                 -fx-border-radius: 14;
-                                 -fx-border-color: #cfe1ef;
-                                 -fx-padding: 20;
-                                 -fx-effect: dropshadow(
-                                     three-pass-box,
-                                     rgba(0,0,0,0.12),
-                                     9,
-                                     0,
-                                     0,
-                                     3
-                                 );">
+                          styleClass="section-card">
 
                         <Label text="Bangladesh Submitted Results"
-                               style="-fx-font-size: 23px;
-                                      -fx-font-weight: bold;
-                                      -fx-text-fill: #0d47a1;"/>
+                               styleClass="section-title"/>
 
                         <Label text="Only polling stations that submitted final results are included."
                                alignment="CENTER"
                                wrapText="true"
-                               style="-fx-font-size: 12px;
-                                      -fx-text-fill: #607d8b;"/>
+                               styleClass="normal-text"/>
 
                         <Separator/>
 
                         <VBox alignment="CENTER"
                               spacing="4"
                               maxWidth="600"
-                              style="-fx-background-color: #ede7f6;
-                                     -fx-background-radius: 10;
-                                     -fx-border-radius: 10;
-                                     -fx-border-color: #b39ddb;
-                                     -fx-padding: 12 20 12 20;">
+                              styleClass="purple-panel">
 
                             <Label text="RESULT SUBMISSION PROGRESS"
-                                   style="-fx-font-size: 11px;
-                                          -fx-font-weight: bold;
-                                          -fx-text-fill: #5e35b1;"/>
+                                   styleClass="normal-text"/>
 
                             <Label fx:id="nationalProgressLabel"
                                    text="Final results submitted: 0 / 0 polling stations"
                                    alignment="CENTER"
                                    wrapText="true"
-                                   style="-fx-font-size: 16px;
-                                          -fx-font-weight: bold;
-                                          -fx-text-fill: #4527a0;"/>
+                                   styleClass="card-title"/>
 
                         </VBox>
 
@@ -169,62 +114,43 @@
                             <VBox alignment="CENTER"
                                   spacing="3"
                                   prefWidth="260"
-                                  style="-fx-background-color: #e8f5e9;
-                                         -fx-background-radius: 9;
-                                         -fx-padding: 12;">
+                                  styleClass="stat-card success-card">
 
                                 <Label text="TOTAL VALID VOTES"
-                                       style="-fx-font-size: 11px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #558b2f;"/>
+                                       styleClass="normal-text"/>
 
                                 <Label fx:id="nationalValidLabel"
                                        text="Valid Votes: 0"
-                                       style="-fx-font-size: 18px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #2e7d32;"/>
+                                       styleClass="success-text"/>
 
                             </VBox>
 
                             <VBox alignment="CENTER"
                                   spacing="3"
                                   prefWidth="260"
-                                  style="-fx-background-color: #ffebee;
-                                         -fx-background-radius: 9;
-                                         -fx-padding: 12;">
+                                  styleClass="stat-card danger-card">
 
                                 <Label text="TOTAL INVALID VOTES"
-                                       style="-fx-font-size: 11px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #c62828;"/>
+                                       styleClass="normal-text"/>
 
                                 <Label fx:id="nationalInvalidLabel"
                                        text="Invalid Votes: 0"
-                                       style="-fx-font-size: 18px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #c62828;"/>
+                                       styleClass="danger-text"/>
 
                             </VBox>
 
                         </HBox>
 
                         <Label text="Candidate-wise Bangladesh Total"
-                               style="-fx-font-size: 16px;
-                                      -fx-font-weight: bold;
-                                      -fx-text-fill: #263238;"/>
+                               styleClass="card-title"/>
 
                         <TableView fx:id="bdTable"
                                    prefHeight="190"
-                                   maxWidth="930"
-                                   style="-fx-background-color: white;
-                                          -fx-border-color: #d7e3ec;
-                                          -fx-border-radius: 6;">
+                                   maxWidth="930">
 
                             <placeholder>
-
                                 <Label text="No polling station result has been submitted."
-                                       style="-fx-text-fill: #78909c;"/>
-
+                                       styleClass="normal-text"/>
                             </placeholder>
 
                             <columns>
@@ -243,36 +169,19 @@
 
                     </VBox>
 
-                    <!-- ===================================== -->
-                    <!-- SECTION 3: POLLING STATION SELECTION -->
-                    <!-- ===================================== -->
+                    <!-- POLLING STATION SELECTION -->
 
                     <VBox alignment="CENTER"
                           spacing="14"
                           maxWidth="1000"
                           prefWidth="1000"
-                          style="-fx-background-color: white;
-                                 -fx-background-radius: 14;
-                                 -fx-border-radius: 14;
-                                 -fx-border-color: #cfe1ef;
-                                 -fx-padding: 20;
-                                 -fx-effect: dropshadow(
-                                     three-pass-box,
-                                     rgba(0,0,0,0.12),
-                                     9,
-                                     0,
-                                     0,
-                                     3
-                                 );">
+                          styleClass="section-card">
 
                         <Label text="Polling Station Live Monitoring"
-                               style="-fx-font-size: 23px;
-                                      -fx-font-weight: bold;
-                                      -fx-text-fill: #0d47a1;"/>
+                               styleClass="section-title"/>
 
                         <Label text="Select Division, District, Upazila and Polling Station."
-                               style="-fx-font-size: 12px;
-                                      -fx-text-fill: #607d8b;"/>
+                               styleClass="normal-text"/>
 
                         <Separator/>
 
@@ -282,8 +191,7 @@
                             <VBox spacing="5">
 
                                 <Label text="Division"
-                                       style="-fx-font-weight: bold;
-                                              -fx-text-fill: #37474f;"/>
+                                       styleClass="card-title"/>
 
                                 <ComboBox fx:id="divCombo"
                                           promptText="Select Division"
@@ -295,8 +203,7 @@
                             <VBox spacing="5">
 
                                 <Label text="District"
-                                       style="-fx-font-weight: bold;
-                                              -fx-text-fill: #37474f;"/>
+                                       styleClass="card-title"/>
 
                                 <ComboBox fx:id="disCombo"
                                           promptText="Select District"
@@ -308,8 +215,7 @@
                             <VBox spacing="5">
 
                                 <Label text="Upazila"
-                                       style="-fx-font-weight: bold;
-                                              -fx-text-fill: #37474f;"/>
+                                       styleClass="card-title"/>
 
                                 <ComboBox fx:id="upaCombo"
                                           promptText="Select Upazila"
@@ -321,8 +227,7 @@
                             <VBox spacing="5">
 
                                 <Label text="Polling Station"
-                                       style="-fx-font-weight: bold;
-                                              -fx-text-fill: #37474f;"/>
+                                       styleClass="card-title"/>
 
                                 <ComboBox fx:id="stationCombo"
                                           promptText="Select Polling Station"
@@ -336,63 +241,37 @@
                         <VBox alignment="CENTER"
                               spacing="4"
                               maxWidth="720"
-                              style="-fx-background-color: #e3f2fd;
-                                     -fx-background-radius: 10;
-                                     -fx-border-radius: 10;
-                                     -fx-border-color: #90caf9;
-                                     -fx-padding: 14 20 14 20;">
+                              styleClass="message-panel">
 
                             <Label text="SELECTED POLLING STATION LIVE STATUS"
-                                   style="-fx-font-size: 11px;
-                                          -fx-font-weight: bold;
-                                          -fx-text-fill: #546e7a;"/>
+                                   styleClass="normal-text"/>
 
                             <Label fx:id="selectedStationLiveCountLabel"
                                    text="Select a polling station."
                                    alignment="CENTER"
                                    wrapText="true"
-                                   style="-fx-font-size: 21px;
-                                          -fx-font-weight: bold;
-                                          -fx-text-fill: #1565c0;"/>
+                                   styleClass="section-title"/>
 
                         </VBox>
 
                     </VBox>
 
-                    <!-- ===================================== -->
-                    <!-- SECTION 4: SELECTED STATION RESULT   -->
-                    <!-- ===================================== -->
+                    <!-- SELECTED STATION RESULT -->
 
                     <VBox alignment="CENTER"
                           spacing="13"
                           maxWidth="1000"
                           prefWidth="1000"
-                          style="-fx-background-color: white;
-                                 -fx-background-radius: 14;
-                                 -fx-border-radius: 14;
-                                 -fx-border-color: #cfe1ef;
-                                 -fx-padding: 20;
-                                 -fx-effect: dropshadow(
-                                     three-pass-box,
-                                     rgba(0,0,0,0.12),
-                                     9,
-                                     0,
-                                     0,
-                                     3
-                                 );">
+                          styleClass="section-card">
 
                         <Label text="Selected Polling Station Final Result"
-                               style="-fx-font-size: 23px;
-                                      -fx-font-weight: bold;
-                                      -fx-text-fill: #0d47a1;"/>
+                               styleClass="section-title"/>
 
                         <Label fx:id="stationResultStatusLabel"
                                text="Select a polling station to see its result status."
                                alignment="CENTER"
                                wrapText="true"
-                               style="-fx-font-size: 13px;
-                                      -fx-font-weight: bold;
-                                      -fx-text-fill: #546e7a;"/>
+                               styleClass="status-label"/>
 
                         <HBox alignment="CENTER"
                               spacing="20">
@@ -400,40 +279,28 @@
                             <VBox alignment="CENTER"
                                   spacing="3"
                                   prefWidth="260"
-                                  style="-fx-background-color: #e8f5e9;
-                                         -fx-background-radius: 9;
-                                         -fx-padding: 12;">
+                                  styleClass="stat-card success-card">
 
                                 <Label text="STATION VALID VOTES"
-                                       style="-fx-font-size: 11px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #558b2f;"/>
+                                       styleClass="normal-text"/>
 
                                 <Label fx:id="stationValidLabel"
                                        text="Valid Votes: 0"
-                                       style="-fx-font-size: 18px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #2e7d32;"/>
+                                       styleClass="success-text"/>
 
                             </VBox>
 
                             <VBox alignment="CENTER"
                                   spacing="3"
                                   prefWidth="260"
-                                  style="-fx-background-color: #ffebee;
-                                         -fx-background-radius: 9;
-                                         -fx-padding: 12;">
+                                  styleClass="stat-card danger-card">
 
                                 <Label text="STATION INVALID VOTES"
-                                       style="-fx-font-size: 11px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #c62828;"/>
+                                       styleClass="normal-text"/>
 
                                 <Label fx:id="stationInvalidLabel"
                                        text="Invalid Votes: 0"
-                                       style="-fx-font-size: 18px;
-                                              -fx-font-weight: bold;
-                                              -fx-text-fill: #c62828;"/>
+                                       styleClass="danger-text"/>
 
                             </VBox>
 
@@ -441,15 +308,12 @@
 
                         <TableView fx:id="stationTable"
                                    prefHeight="210"
-                                   maxWidth="930"
-                                   style="-fx-background-color: white;
-                                          -fx-border-color: #d7e3ec;
-                                          -fx-border-radius: 6;">
+                                   maxWidth="930">
 
                             <placeholder>
 
                                 <Label text="No submitted result is available for the selected polling station."
-                                       style="-fx-text-fill: #78909c;"/>
+                                       styleClass="normal-text"/>
 
                             </placeholder>
 
@@ -477,24 +341,16 @@
 
     </center>
 
-    <!-- ================= FOOTER ================= -->
-
     <bottom>
 
         <HBox alignment="CENTER"
-              style="-fx-background-color: #dbeaf5;
-                     -fx-padding: 10 20 12 20;">
+              styleClass="bottom-bar">
 
             <Button text="Logout"
                     onAction="#handleLogout"
                     prefWidth="110"
                     prefHeight="38"
-                    style="-fx-background-color: #d32f2f;
-                           -fx-text-fill: white;
-                           -fx-font-size: 14px;
-                           -fx-font-weight: bold;
-                           -fx-background-radius: 7;
-                           -fx-cursor: hand;"/>
+                    styleClass="danger-button"/>
 
         </HBox>
 

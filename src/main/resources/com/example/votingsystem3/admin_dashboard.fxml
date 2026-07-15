@@ -1,184 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21"
+<BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.votingsystem3.controllers.AdminDashboardController"
-            prefWidth="1100"
-            prefHeight="650"
-            style="-fx-background-color: linear-gradient(to top right, #4cc5ee, #a3ecf8);">
+            prefWidth="1180"
+            prefHeight="760"
+            stylesheets="@app-theme.css"
+            styleClass="page-shell">
 
-    <HBox spacing="30"
-          alignment="TOP_CENTER"
-          AnchorPane.topAnchor="10"
-          AnchorPane.leftAnchor="20"
-          AnchorPane.rightAnchor="20"
-          AnchorPane.bottomAnchor="10">
+    <top>
+        <VBox alignment="CENTER"
+              styleClass="top-banner">
 
-        <VBox spacing="14"
-              prefWidth="540"
-              style="-fx-background-color: white;
-                     -fx-padding: 20;
-                     -fx-background-radius: 10;">
-
-            <Label text="Polling Officer Dashboard"
-                   style="-fx-font-size: 22px;
-                          -fx-font-weight: bold;
-                          -fx-text-fill: #1976d2;"/>
+            <Label text="POLLING STATION ADMIN DASHBOARD"
+                   styleClass="main-title"/>
 
             <Label fx:id="stationNameLabel"
                    text="Polling Station"
-                   style="-fx-font-size: 18px;
-                          -fx-font-weight: bold;
-                          -fx-text-fill: #1976d2;"/>
-
-            <Label fx:id="pollingStatusLabel"
-                   text="Polling Status"
-                   style="-fx-font-weight: bold;"/>
-
-            <Label text="Final Candidate Result"
-                   style="-fx-font-size: 16px;
-                          -fx-font-weight: bold;
-                          -fx-text-fill: #136085;"/>
-
-            <TableView fx:id="resultTable"
-                       prefHeight="230"
-                       editable="true">
-
-                <columns>
-                    <TableColumn fx:id="candidateNameCol"
-                                 text="Candidate"
-                                 prefWidth="245"/>
-
-                    <TableColumn fx:id="voteCountCol"
-                                 text="Saved Votes"
-                                 prefWidth="130"/>
-
-                    <TableColumn fx:id="updateVoteCol"
-                                 text="Final Count"
-                                 prefWidth="130"/>
-                </columns>
-
-            </TableView>
-
-            <Button fx:id="updateVotesButton"
-                    text="Submit Final Result"
-                    onAction="#handleUpdateVotes"
-                    style="-fx-background-color: #388e3c;
-                           -fx-text-fill: white;
-                           -fx-font-weight: bold;"/>
-
-            <Label fx:id="statusLabel"
-                   wrapText="true"
-                   style="-fx-text-fill: #1565c0;
-                          -fx-font-weight: bold;"/>
-
-            <Separator/>
-
-            <Label text="Messages with Super Admin"
-                   style="-fx-font-weight: bold;
-                          -fx-text-fill: #1976d2;"/>
-
-            <ListView fx:id="messagesList"
-                      prefHeight="100"/>
-
-            <HBox spacing="10">
-                <TextField fx:id="replyField"
-                           promptText="Type message"
-                           HBox.hgrow="ALWAYS"/>
-
-                <Button fx:id="sendButton"
-                        text="Send"/>
-            </HBox>
-
-            <Label fx:id="messageStatusLabel"/>
-
-            <Button fx:id="logoutButton"
-                    text="Logout"
-                    onAction="#handleLogout"
-                    style="-fx-background-color: #d32f2f;
-                           -fx-text-fill: white;
-                           -fx-font-weight: bold;"/>
+                   styleClass="subtitle"/>
 
         </VBox>
+    </top>
 
-        <VBox spacing="25"
-              prefWidth="520"
-              style="-fx-background-color: white;
-                     -fx-padding: 20;
-                     -fx-background-radius: 10;">
+    <center>
 
-            <VBox spacing="10"
-                  style="-fx-border-color: #1976d2;
-                         -fx-border-radius: 6;
-                         -fx-background-color: #e3f2fd;
-                         -fx-padding: 15;">
+        <ScrollPane fitToWidth="true"
+                    hbarPolicy="NEVER"
+                    vbarPolicy="AS_NEEDED">
 
-                <Label text="NID Registration"
-                       style="-fx-font-size: 16px;
-                              -fx-font-weight: bold;"/>
+            <content>
 
-                <TextField fx:id="nidRegisterField"
-                           promptText="Enter NID"/>
+                <HBox alignment="TOP_CENTER"
+                      spacing="22">
 
-                <Button fx:id="registerButton"
-                        text="Register NID"/>
+                    <padding>
+                        <Insets top="22"
+                                right="25"
+                                bottom="22"
+                                left="25"/>
+                    </padding>
 
-                <Label fx:id="registerStatusLabel"
-                       wrapText="true"/>
+                    <!-- LEFT SIDE -->
 
-                <Label fx:id="registeredCountLabel"
-                       text="Registered: 0"
-                       style="-fx-font-size: 18px;
-                              -fx-font-weight: bold;"/>
+                    <VBox spacing="14"
+                          prefWidth="550"
+                          styleClass="section-card">
 
-            </VBox>
+                        <Label text="Final Candidate Result"
+                               styleClass="section-title"/>
 
-            <VBox spacing="10"
-                  style="-fx-border-color: #388e3c;
-                         -fx-border-radius: 6;
-                         -fx-background-color: #e8f5e9;
-                         -fx-padding: 15;">
+                        <Label fx:id="pollingStatusLabel"
+                               text="Polling Status"
+                               styleClass="status-label"/>
 
-                <Label text="Record Vote Cast"
-                       style="-fx-font-size: 16px;
-                              -fx-font-weight: bold;"/>
+                        <TableView fx:id="resultTable"
+                                   prefHeight="250"
+                                   editable="true">
 
-                <Label text="This records only that the voter has cast a ballot. Candidate votes are entered separately."
-                       wrapText="true"/>
+                            <columns>
 
-                <TextField fx:id="nidVoteField"
-                           promptText="Enter NID"/>
+                                <TableColumn fx:id="candidateNameCol"
+                                             text="Candidate"
+                                             prefWidth="245"/>
 
-                <Button fx:id="voteButton"
-                        text="Verify &amp; Record Vote Cast"/>
+                                <TableColumn fx:id="voteCountCol"
+                                             text="Saved Votes"
+                                             prefWidth="130"/>
 
-                <Label fx:id="voteStatusLabel"
-                       wrapText="true"/>
+                                <TableColumn fx:id="updateVoteCol"
+                                             text="Final Count"
+                                             prefWidth="130"/>
 
-                <Label fx:id="votedCountLabel"
-                       text="Live Votes Cast: 0"
-                       style="-fx-font-size: 25px;
-                              -fx-font-weight: bold;
-                              -fx-text-fill: #2e7d32;"/>
+                            </columns>
 
-                <Label text="This number updates automatically."
-                       style="-fx-text-fill: #455a64;"/>
+                        </TableView>
 
-            </VBox>
+                        <Button fx:id="updateVotesButton"
+                                text="Submit Final Result"
+                                onAction="#handleUpdateVotes"
+                                styleClass="success-button"/>
 
-        </VBox>
+                        <Label fx:id="statusLabel"
+                               wrapText="true"
+                               styleClass="status-label"/>
 
-    </HBox>
+                        <Separator/>
 
-</AnchorPane>
+                        <Label text="Messages with Super Admin"
+                               styleClass="card-title"/>
+
+                        <ListView fx:id="messagesList"
+                                  prefHeight="130"/>
+
+                        <HBox spacing="10">
+
+                            <TextField fx:id="replyField"
+                                       promptText="Type message"
+                                       HBox.hgrow="ALWAYS"/>
+
+                            <Button fx:id="sendButton"
+                                    text="Send"
+                                    styleClass="primary-button"/>
+
+                        </HBox>
+
+                        <Label fx:id="messageStatusLabel"
+                               wrapText="true"
+                               styleClass="normal-text"/>
+
+                        <Button fx:id="logoutButton"
+                                text="Logout"
+                                onAction="#handleLogout"
+                                styleClass="danger-button"/>
+
+                    </VBox>
+
+                    <!-- RIGHT SIDE -->
+
+                    <VBox spacing="18"
+                          prefWidth="500"
+                          styleClass="section-card">
+
+                        <VBox spacing="10"
+                              styleClass="message-panel">
+
+                            <Label text="NID Registration"
+                                   styleClass="card-title"/>
+
+                            <TextField fx:id="nidRegisterField"
+                                       promptText="Enter NID"/>
+
+                            <Button fx:id="registerButton"
+                                    text="Register NID"
+                                    styleClass="primary-button"/>
+
+                            <Label fx:id="registerStatusLabel"
+                                   wrapText="true"
+                                   styleClass="normal-text"/>
+
+                            <VBox alignment="CENTER"
+                                  styleClass="stat-card">
+
+                                <Label text="REGISTERED VOTERS"
+                                       styleClass="normal-text"/>
+
+                                <Label fx:id="registeredCountLabel"
+                                       text="Registered: 0"
+                                       styleClass="section-title"/>
+
+                            </VBox>
+
+                        </VBox>
+
+                        <VBox spacing="10"
+                              styleClass="success-panel">
+
+                            <Label text="Record Vote Cast"
+                                   styleClass="card-title"/>
+
+                            <Label text="This records only that the voter has cast a ballot. Candidate votes are entered separately."
+                                   wrapText="true"
+                                   styleClass="normal-text"/>
+
+                            <TextField fx:id="nidVoteField"
+                                       promptText="Enter NID"/>
+
+                            <Button fx:id="voteButton"
+                                    text="Verify &amp; Record Vote Cast"
+                                    styleClass="success-button"/>
+
+                            <Label fx:id="voteStatusLabel"
+                                   wrapText="true"
+                                   styleClass="normal-text"/>
+
+                            <VBox alignment="CENTER"
+                                  styleClass="stat-card success-card">
+
+                                <Label text="LIVE VOTES CAST"
+                                       styleClass="normal-text"/>
+
+                                <Label fx:id="votedCountLabel"
+                                       text="Live Votes Cast: 0"
+                                       styleClass="section-title"/>
+
+                            </VBox>
+
+                            <Label text="This number updates automatically."
+                                   styleClass="normal-text"/>
+
+                        </VBox>
+
+                    </VBox>
+
+                </HBox>
+
+            </content>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

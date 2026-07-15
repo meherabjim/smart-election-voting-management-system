@@ -1,0 +1,16 @@
+﻿target/
+.idea/
+*.iml
+*.log
+run-error.txt
+*.bak
+pom.xml.*.bak
+module-info.java.*.bak
+.DS_Store
+Thumbs.db
+
+*.backup
+*.backup.*
+
+*.backup
+*.backup.*
